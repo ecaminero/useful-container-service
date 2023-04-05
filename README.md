@@ -4,7 +4,7 @@ Este repo encontraras dentro de services yml utiles para levantar servicios en d
 ## Estructura
 ```
 .
-├── data
+├── volumes
 │   ├── *
 ├── services
 │   ├── *.yml
