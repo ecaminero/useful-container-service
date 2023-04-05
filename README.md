@@ -2,12 +2,15 @@
 Este repo encontraras dentro de services yml utiles para levantar servicios en docker usando docker compose 
 
 ## Estructura
+```
 .
 ├── data
-│   ├── *.http
+│   ├── *
 ├── services
 │   ├── *.yml
 ├── README.md
+
+```
 
 ## Reqierimientos
 * [Docker](https://www.docker.com/) - The most-loved Tool in Stack Overflow’s 2022 Developer Survey.
