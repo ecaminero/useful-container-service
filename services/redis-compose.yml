@@ -1,13 +1,17 @@
 version: '3.8'
 services:
-  cache:
-    image: redis:6.2-alpine
-    restart:  on-failure
+  redis:
+    image: redis:7.0.11-alpine
+    restart: on-failure
+    environment:
+      # ALLOW_EMPTY_PASSWORD is recommended only for development.
+      - ALLOW_EMPTY_PASSWORD=yes
+      - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
     ports:
       - '6379:6379'
-    command: redis-server --save 20 1 --loglevel warning --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
-    volumes: 
-      - cache:/data
+    command: redis-server --save 20 1 --loglevel warning
+    volumes:
+      - 'data:/data'
 volumes:
-  cache:
+  data:
     driver: local
