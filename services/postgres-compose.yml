@@ -1,0 +1,31 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: meli
+      POSTGRES_PASSWORD: meli
+      POSTGRES_DB: meli
+    volumes:
+      - postgres-data-volume:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "meli", "-d", "meli"]
+      interval: 5s
+      retries: 5
+    restart: unless-stopped
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin4_container
+    restart: always
+    ports:
+      - "5050:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: edwin@hola.ai
+      PGADMIN_DEFAULT_PASSWORD: admin
+    volumes:
+      - pgadmin-data-volume:/var/lib/pgadmin
+volumes:
+  postgres-data-volume:
+    driver: local
+  pgadmin-data-volume:
+    driver: local
