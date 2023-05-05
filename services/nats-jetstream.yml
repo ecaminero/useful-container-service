@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  nats:
+    container_name: meli-nats
+    image: nats:latest
+    command: "--jetstream --store_dir /data --http_port 8222"
+    volumes:
+      - nats-data:/data
+    ports:
+      - "4222:4222"
+      - "8222:8222"
+      - "6222:6222"
+    networks:
+      - services
+    healthcheck:
+        test: echo $$(wget --server-response http://0.0.0.0:8222/varz 2>&1 | grep  '200 OK') | grep '200'  || exit 1
+        interval: 20s
+        timeout: 5s
+        retries: 5
+        start_period: 40s
+volumes:
+  nats-data:
+    driver: local
+networks:
+  services:
+    name: services
