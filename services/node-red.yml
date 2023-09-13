@@ -1,0 +1,15 @@
+version: '3'
+services:
+  nodered:
+    image: nodered/node-red:latest
+    ports:
+      - 1880:1880
+    environment:
+      - NODE_RED_CREDENTIAL_SECRET=secreto
+      - TZ=America/Santiago
+      - NODE_RED_ENABLE_PROJECTS=true
+    volumes:
+      - ./data/nodered:/data
+volumes:
+  nodered-volumen:
+    driver: local

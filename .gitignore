@@ -233,4 +233,6 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,vim,linux,windows,osx,sublimetext,intellij+all
 volumes/*
-data/*
+data/.*
+config/.*
+config/lib
