@@ -236,3 +236,4 @@ volumes/*
 data/.*
 config/.*
 config/lib
+*-data

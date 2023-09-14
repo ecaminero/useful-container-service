@@ -5,11 +5,12 @@ services:
     ports:
       - 1880:1880
     environment:
-      - NODE_RED_CREDENTIAL_SECRET=secreto
+      - NODE_RED_CREDENTIAL_SECRET=secret-key
       - TZ=America/Santiago
       - NODE_RED_ENABLE_PROJECTS=true
+      # - FLOWS=/config/nodered/my-flows.json
     volumes:
-      - ./data/nodered:/data
+      - ./nodered-data:/data:wo
 volumes:
-  nodered-volumen:
+  nodered-data:
     driver: local
