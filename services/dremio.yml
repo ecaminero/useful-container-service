@@ -1,0 +1,14 @@
+version: '3'
+services:
+  dremio:
+    image: dremio/dremio-oss
+    ports:
+      - 9047:9047
+      - 31010:31010
+      - 32010:32010
+      - 45678:45678
+    networks:
+      dremio_net:
+networks:
+  dremio_net:
+  
