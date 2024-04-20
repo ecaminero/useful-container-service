@@ -237,3 +237,6 @@ data/.*
 config/.*
 config/lib
 *-data
+
+# Airflow
+**/dags
