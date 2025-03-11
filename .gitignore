@@ -240,3 +240,4 @@ config/lib
 
 # Airflow
 **/dags
+**.jar
